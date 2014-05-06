@@ -1,0 +1,29 @@
+<script type="text/javascript">
+	var sieve = function(MAX) {
+		var arr = Array(), output = Array();
+		var upperLimit = Math.sqrt(MAX);
+		// Llenamos el "conjunto" con los datos
+		for(var i = 0; i < MAX; i++) {
+			arr.push(true);
+		}
+		
+		// Removemos los múltiplos primos
+		for(var i = 2; i <= upperLimit; i++) {
+			if(arr[i]) {	// Si existe el número "borramos" sus múltiplos
+				for(var j = i*i; j < MAX; j += i) {
+					arr[j] = false;
+				}
+			}
+		}
+		for(var i = 2; i < MAX; i++) {
+			if(arr[i]) {
+				document.write(i + "<br/>");
+			}
+		}
+	}
+	var LIMIT = 10000;
+	var start = new Date().getTime();
+	sieve(LIMIT);
+	var end = new Date().getTime();
+	alert((end-start) + " ms to calculate the prime numbers between 1 and " + LIMIT); 
+</script>
