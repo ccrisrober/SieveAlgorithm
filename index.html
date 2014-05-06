@@ -21,9 +21,16 @@
 			}
 		}
 	}
-	var LIMIT = 10000;
-	var start = new Date().getTime();
-	sieve(LIMIT);
-	var end = new Date().getTime();
-	alert((end-start) + " ms to calculate the prime numbers between 1 and " + LIMIT); 
+	var LIMIT = prompt("Say the maximum value");
+	if(isNaN(LIMIT) || LIMIT == "") {
+		alert("Error, the value is not a number");
+	} else if (LIMIT <= 1) {
+		alert("Error, we need a number greater than 1");
+	}
+	else {
+		var start = new Date().getTime();
+		sieve(LIMIT);
+		var end = new Date().getTime();
+		alert((end-start) + " ms to calculate the prime numbers between 1 and " + LIMIT); 
+	}
 </script>
