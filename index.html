@@ -2,14 +2,14 @@
 	var sieve = function(MAX) {
 		var arr = Array(), output = Array();
 		var upperLimit = Math.sqrt(MAX);
-		// Llenamos el "conjunto" con los datos
+		// We fill the "set" with data
 		for(var i = 0; i < MAX; i++) {
 			arr.push(true);
 		}
 		
-		// Removemos los múltiplos primos
+		// "Remove" multiples cousins
 		for(var i = 2; i <= upperLimit; i++) {
-			if(arr[i]) {	// Si existe el número "borramos" sus múltiplos
+			if(arr[i]) {	// If number exists, "delete" her multiples
 				for(var j = i*i; j < MAX; j += i) {
 					arr[j] = false;
 				}
